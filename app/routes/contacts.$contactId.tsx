@@ -18,6 +18,9 @@ interface Contact {
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.contactId, "Missing contactId param");
   const contact = await getContact(params.contactId);
+  if (!contact) {
+    throw new Response("Not Found", { status: 404 });
+  }
   return json({ contact });
 };
 
@@ -49,7 +52,7 @@ export default function Contact() {
         {contact.twitter ? (
           <p>
             <a href={`https://twitter.com/${contact.twitter}`}>
-              {contact.twitter}
+              X {contact.twitter}
             </a>
           </p>
         ) : null}
