@@ -301,30 +301,17 @@ button {
   top: 1px;
 }
 
-.sidebar-inner .topbar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  align-items: center;
+.sidebar-inner > div {
+  display: flex;
+  align-items: stretch;
   gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   order: 0;
 }
-form {
-  display: grid;
-}
 
-.topbar .theme-toggle {
-  grid-area: 1 / 1 / 2 / 2;
-}
-.topbar form input {
-  grid-area: 1 / 2 / 2 / 5;
-}
-.topbar .new-button {
-  grid-area: 1 / 5 / 2 / 6;
+.sidebar-inner > div form {
+  position: relative;
 }
 
 .sidebar-inner > div form input[type="search"] {
