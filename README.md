@@ -1,3 +1,6 @@
 # Testing Remix Again - Episode II
 
-![Rocky Linux Chris](/public/images/Rocky-Linux.jpg)
+- Worked on the 30 minute Tutorial, fixed Typescript issues and json (React Router) issues.
+- Added a light/dark mode switch with prefers-color-scheme set as default
+
+![Rocky Linux Chris](/public/images/Dark-Mode-Contacts.jpg)

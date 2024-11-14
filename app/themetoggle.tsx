@@ -1,27 +1,25 @@
 import { useState, useEffect } from "react";
+import "./app.css";
 
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(() => {
-    // Check for saved preference first
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
         return savedTheme === "dark";
       }
 
-      // If no saved preference, check system preference
       return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
     return false;
   });
 
   useEffect(() => {
-    // Update theme when system preference changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
+    const handleChange = (event: MediaQueryListEvent) => {
       const hasStoredPreference = localStorage.getItem("theme");
       if (!hasStoredPreference) {
-        setIsDark(e.matches);
+        setIsDark(event.matches);
       }
     };
 
@@ -44,11 +42,11 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
-      className="p-2 rounded-lg bg-opacity-20 hover:bg-opacity-30 transition-colors"
+      className="theme-toggle"
       aria-label="Toggle theme"
     >
       {isDark ? (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="theme-icon" fill="currentColor" viewBox="0 0 20 20">
           {/* Sun icon */}
           <path
             fillRule="evenodd"
@@ -56,7 +54,7 @@ const ThemeToggle = () => {
           />
         </svg>
       ) : (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="theme-icon" fill="currentColor" viewBox="0 0 20 20">
           {/* Moon icon */}
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>
