@@ -19,7 +19,7 @@
 
 /* Dark theme colors */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root.dark {
     --color-background: #1a1a1a;
     --color-text: #ffffff;
     --color-text-muted: #a0a0a0;

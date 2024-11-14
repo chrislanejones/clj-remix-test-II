@@ -16,6 +16,7 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import appStylesHref from "./app.css?url";
 import { createEmptyContact, getContacts } from "./data";
 import { useEffect } from "react";
+import ThemeToggle from "./themetoggle";
 
 export const action = async () => {
   const contact = await createEmptyContact();
@@ -59,6 +60,7 @@ export default function App() {
         <div id="sidebar">
           <h1>Remix Contacts</h1>
           <div>
+            <ThemeToggle />
             <Form
               id="search-form"
               onChange={(event) => {
