@@ -62,32 +62,38 @@ export default function App() {
         <div id="sidebar">
           <div className="sidebar-inner">
             <h1>Remix Contacts</h1>
-            <div>
+            <div className="topbar">
               <ThemeToggle />
-              <Form
-                id="search-form"
-                onChange={(event) => {
-                  const isFirstSearch = q === null;
-                  submit(event.currentTarget, {
-                    replace: !isFirstSearch,
-                  });
-                }}
-                role="search"
-              >
-                <input
-                  aria-label="Search contacts"
-                  className={searching ? "loading" : ""}
-                  defaultValue={q || ""}
-                  id="q"
-                  name="q"
-                  placeholder="Search"
-                  type="search"
-                />
-                <div aria-hidden hidden={!searching} id="search-spinner" />
-              </Form>
-              <Form method="post">
-                <button type="submit">New</button>
-              </Form>
+              <div>
+                <Form
+                  id="search-form"
+                  onChange={(event) => {
+                    const isFirstSearch = q === null;
+                    submit(event.currentTarget, {
+                      replace: !isFirstSearch,
+                    });
+                  }}
+                  role="search"
+                >
+                  <input
+                    aria-label="Search contacts"
+                    className={searching ? "loading" : ""}
+                    defaultValue={q || ""}
+                    id="q"
+                    name="q"
+                    placeholder="Search"
+                    type="search"
+                  />
+                  <div aria-hidden hidden={!searching} id="search-spinner" />
+                </Form>
+              </div>
+              <div>
+                <Form method="post">
+                  <button className="new-button" type="submit">
+                    New
+                  </button>
+                </Form>
+              </div>
             </div>
             <nav>
               {contacts.length ? (
